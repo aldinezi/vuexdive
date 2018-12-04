@@ -1,17 +1,51 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    {{ getName }} {{ getSurname }}
+    {{ fullname }}
+    <div>
+      <input
+        type="text"
+        :value="inputText"
+        @keyup="setInput"
+        @keydown.enter="setName"
+        placeholder="Your name" />
+      <div>
+        <span v-if="inputText!==''">
+          Hello {{ inputText }}
+        </span>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'app',
+  data() {
+    return {
+      inputText: '',
+    };
+  },
   components: {
-    HelloWorld,
+  },
+  computed: {
+    ...mapGetters({
+      getName:'getName',
+      getSurname:'getSurname'
+    }),
+    fullname() {
+      return `${this.getName} ${this.getSurname}`;
+    },
+  },
+  methods: {
+    setInput(e) {
+      this.inputText = e.target.value;
+    },
+    setName() {
+      this.$store.dispatch('setName', this.inputText);
+    },
   },
 };
 </script>
