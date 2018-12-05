@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'app',
@@ -32,8 +32,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      getName:'getName',
-      getSurname:'getSurname'
+      getName: 'getName',
+      getSurname: 'getSurname',
     }),
     fullname() {
       return `${this.getName} ${this.getSurname}`;
