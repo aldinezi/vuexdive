@@ -5,4 +5,7 @@ export default {
   setSurname({ commit }, newSurname) {
     commit('surnameSetter', newSurname);
   },
+  toggleLoading({ commit }) {
+    commit('toggleLoading');
+  },
 };

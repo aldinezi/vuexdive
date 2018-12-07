@@ -12,4 +12,7 @@ export default {
   surnameSetter(state, newSurname) {
     state.surname = newSurname;
   },
+  toggleLoading(state) {
+    state.loading = !state.loading;
+  },
 };

@@ -15,43 +15,10 @@
               Hello {{ inputText }}
             </span>
           </div>
-          <div>
-            <button
-              @click="getSomeSpaceships"
-            >Get Spaceships!</button>
-          </div>
         </div>
       </div>
       <hr>
-      <div class="row">
-        <div
-          class="column column-50 starships"
-          v-if="starships.length">
-          <ul class="ship-list">
-            <li v-for="starship in starships"
-                :key="starship.url">
-              <button
-                class="button-large button-black button-outline "
-                @click="setMyShip(starship.url)">
-                {{ starship.name }}
-              </button>
-            </li>
-          </ul>
-        </div>
-        <div
-          v-if="myShip.name"
-          class="column collumn-50 my-ship">
-          <small>
-            <a>Cost in credits: {{ myShip.cost_in_credits }}</a>
-          </small>
-          <h1>{{ myShip.name }}</h1>
-          <small>Manufacturer: {{ myShip.manufacturer }}</small><br/>
-          <small>Model: {{ myShip.model }}</small><br/>
-          <u>Starship class: {{ myShip.starship_class }} </u><br/>
-          <strong>Hyperdrive rating: {{ myShip.hyperdrive_rating }} </strong><br>
-          <em>Cargo capacity: {{ myShip.cargo_capacity }} </em>
-        </div>
-      </div>
+      <!-- <star-ships></star-ships> -->
     </div>
   </div>
 </template>
@@ -59,14 +26,17 @@
 <script>
 import { mapGetters } from 'vuex';
 
+// import StarShips from '@/components/StarShips.vue';
+
 export default {
   name: 'app',
+  components: {
+    // StarShips,
+  },
   data() {
     return {
       inputText: '',
     };
-  },
-  components: {
   },
   computed: {
     ...mapGetters({
@@ -76,12 +46,6 @@ export default {
     fullname() {
       return `${this.getName} ${this.getSurname}`;
     },
-    starships() {
-      return this.$store.getters.starships;
-    },
-    myShip() {
-      return this.$store.getters.myShip;
-    },
   },
   methods: {
     setInput(e) {
@@ -89,12 +53,6 @@ export default {
     },
     setName() {
       this.$store.dispatch('setName', this.inputText);
-    },
-    getSomeSpaceships() {
-      this.$store.dispatch('getStarships');
-    },
-    setMyShip(shipUrl) {
-      this.$store.dispatch('setMyShip', shipUrl);
     },
   },
 };
@@ -105,7 +63,6 @@ export default {
   text-align: left;
   padding-left: 0;
 }
-.starships .ship-list {
-  list-style: none;
-}
+
+
 </style>

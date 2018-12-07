@@ -9,11 +9,14 @@ export default {
         commit(types.SET_SHIPS, results);
       });
   },
-  setMyShip({ commit }, shipUrl) {
+  // eslint-disable-next-line
+  setMyShip({ commit, getters, dispatch }, shipUrl) {
+    dispatch('toggleLoading');
     fetch(`${shipUrl}`)
       .then(response => response.json())
       .then((resJson) => {
         commit(types.SET_MY_SHIP, resJson);
+        dispatch('toggleLoading');
       });
   },
 };
