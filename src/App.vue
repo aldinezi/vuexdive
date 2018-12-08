@@ -18,20 +18,19 @@
         </div>
       </div>
       <hr>
-      <!-- <star-ships></star-ships> -->
+      <star-ships></star-ships>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-
-// import StarShips from '@/components/StarShips.vue';
+import StarShips from '@/components/StarShips.vue';
 
 export default {
   name: 'app',
   components: {
-    // StarShips,
+    StarShips,
   },
   data() {
     return {
