@@ -9,6 +9,7 @@
             :value="inputText"
             @keyup="setInput"
             @keydown.enter="setName"
+            @keydown.up="setSurname"
             placeholder="Your name" />
           <div>
             <span v-if="inputText!==''">
@@ -25,7 +26,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import StarShips from '@/components/StarShips.vue';
+import StarShips from '@/components/StarShips';
 
 export default {
   name: 'app',
@@ -53,6 +54,9 @@ export default {
     setName() {
       this.$store.dispatch('setName', this.inputText);
     },
+    setSurname() {
+      this.$store.dispatch('setSurname', this.inputText);
+    },
   },
 };
 </script>
@@ -62,6 +66,4 @@ export default {
   text-align: left;
   padding-left: 0;
 }
-
-
 </style>

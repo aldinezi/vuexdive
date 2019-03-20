@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import App from './App.vue';
+import App from './App';
 import store from './store/index';
-import '../node_modules/milligram/dist/milligram.min.css';
+import 'milligram';
 
 Vue.config.productionTip = false;
 

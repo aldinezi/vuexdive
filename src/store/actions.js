@@ -1,4 +1,3 @@
-
 export default {
   setName({ commit }, newName) {
     commit('nameSetter', newName);

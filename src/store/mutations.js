@@ -1,8 +1,3 @@
-/* eslint no-param-reassign: [
-  "error",
-  { "props": true, "ignorePropertyModificationsFor": ["state"] },
-] */
-
 import Vue from 'vue';
 
 export default {

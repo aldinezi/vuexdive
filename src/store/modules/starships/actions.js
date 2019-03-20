@@ -10,7 +10,7 @@ export default {
       });
   },
   // eslint-disable-next-line
-  setMyShip({ commit, getters, dispatch }, shipUrl) {
+  setMyShip({ commit, dispatch }, shipUrl) {
     dispatch('toggleLoading');
     fetch(`${shipUrl}`)
       .then(response => response.json())
