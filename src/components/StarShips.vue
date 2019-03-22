@@ -68,16 +68,6 @@ export default {
     myShip() {
       return this.$store.getters.myShip;
     },
-    /* uglyShip() {
-      console.log('Get me the ugly ship!');
-      const { ship } = this.$store.getters.ships;
-      const { pilot } = ship;
-      const { personalInfo } = pilot;
-      personalInfo.name = `Mr. ${personalInfo.name}`;
-      personalInfo.surname = 'Ranjesh';
-      personalInfo.fullName = `${personalInfo.name} ${personalInfo.surname}`;
-      return personalInfo.fullName;
-    }, */
     starships() {
       return this.$store.getters.starships;
     },

@@ -9,5 +9,4 @@ export default ({
   actions,
   mutations,
   plugins: [],
-  strict: process.env.NODE_ENV !== 'production',
 });
